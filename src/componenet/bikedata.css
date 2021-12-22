@@ -1,0 +1,13 @@
+.container{
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 75vw;
+    background: black;
+    margin-top: 15px;
+    border-radius: 15px;
+  }
+  
+  .container > div {
+    margin: 15px;
+
+  }

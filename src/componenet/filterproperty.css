@@ -1,0 +1,23 @@
+.sliderprop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100px;
+  border: 2px solid red;
+  position: relative;
+}
+
+label {
+  color: white;
+  font-size: 1.5em;
+}
+
+.heading {
+  width: 300px;
+  text-align: center;
+}
+.unit {
+  text-align: center;
+  margin-top: 15px;
+}
