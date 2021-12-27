@@ -11,3 +11,55 @@
     margin: 15px;
 
   }
+
+  .sliderContainer{
+    display:  flex;
+justify-content: space-around;
+align-items: center;
+padding: 10px;
+width: 100%;
+
+    
+  }
+  .sliderprop{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    position: relative;
+    padding: 10px;
+    margin-left: 15px;
+
+  }
+  .sliderprop > div {
+    width: 100%;
+}
+
+label {
+  color: white;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.unit{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filterButton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filterbtn{
+  padding: 15px;
+  border-radius: 15px;
+  outline: none;
+  color: white;
+  border:2px solid goldenrod;
+  background-color: black;
+}

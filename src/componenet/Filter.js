@@ -1,3 +1,4 @@
+// import { useState } from "react/cjs/react.development";
 import "./filter.css";
 // import Slider from './Slider';
 import Filterproperty from "./Filterproperty";
@@ -7,7 +8,6 @@ const Filter = () => {
     <div className="filtercontent">
       <div className="filterprop">
       <Filterproperty
-      
         fltr1="capacity"
         min={23}
         max={55}
@@ -21,7 +21,7 @@ const Filter = () => {
         unit="cm3"
       />
       <Filterproperty
-        
+        z
         fltr1="capacity"
         min={23}
         max={55}

@@ -1,9 +1,7 @@
 import "./filterproperty.css";
 import MultiRangeSlider from "./MultiRangeSlider";
-import { useState } from "react";
 
 const Filterproperty = (prop) => {
-  // const [minval, setMin] = useState([]);
   return (
     <div className="sliderProp">
       <div className="heading">

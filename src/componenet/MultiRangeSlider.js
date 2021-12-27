@@ -5,7 +5,7 @@ import { useRef } from "react";
 import classNames from "classnames";
 import { useCallback, useEffect } from "react";
 
-const MultiRangeSlider = ({ min, max, onChange,prop }) => {
+const MultiRangeSlider = ({ min, max, onChange }) => {
   const [minVal, setMinVal] = useState(min);
   const [maxVal, setMaxVal] = useState(max);
   const minValRef = useRef(null);
@@ -55,7 +55,7 @@ const MultiRangeSlider = ({ min, max, onChange,prop }) => {
         type="range"
         min={min}
         max={max}
-        value={minVal}
+        value={minVal}z
         ref={minValRef}
         onChange={(event) => {
           const value = Math.min(+event.target.value, maxVal - 1);
@@ -84,10 +84,6 @@ const MultiRangeSlider = ({ min, max, onChange,prop }) => {
         <div className="slider__range" />
       </div>
       <div ref={range} className="slider__range" />
-      <div className="unit">
-        <label>{minVal}</label>  <label>"-"</label>
-        <label>{maxVal}</label> 
-      </div>
     </div>
   );
 };
