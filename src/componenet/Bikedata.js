@@ -1,10 +1,12 @@
 import { Supabase } from "./Client";
 import React, { useEffect, useState } from "react";
-import Bikecard from "./Bikecard";
+
+import Pagination from "./Pagination";
 import './bikedata.css'
 
 import Header from "../UI/Header";
 import MultiRangeSlider from "./MultiRangeSlider";
+import Posts from "./Posts";
 
 const Bikedata = () => {
   const [min1,setmin]= useState(0);
@@ -16,6 +18,8 @@ const Bikedata = () => {
   const [min4,setmin4]=useState(0);
   const [max4,setmax4]=useState(0);
   const [filteredBikeData,setFiltereddata]=useState([]);
+  const [currentpage,setCurrentpage] = useState(1);
+  const [postPerPage,setPostPerPage] = useState(21);
 
   const filterData = ()=>{
     let filteredData = bikedata.filter(function(val){
@@ -44,6 +48,14 @@ const Bikedata = () => {
     });
   }, []);
 
+  const paginate =(pageNumber)=>{
+    setCurrentpage(pageNumber);
+  }
+
+
+  const indexOfLastPost = currentpage*postPerPage;
+  const indexOfFirstPost = indexOfLastPost-postPerPage;
+  const currentPosts =  filteredBikeData.slice(indexOfFirstPost,indexOfLastPost);
 
   
   return (
@@ -108,25 +120,18 @@ const Bikedata = () => {
             </div>
             </div>
           </div>
-          <div className="filterButton">
-            <button className="filterbtn" onClick={filterData}>Filter</button>
 
+          {/* filter Button for filtering data */}
+          <div className="filterButton">
+            <button className="filterbtn btn btn-outline-warning btn-lg" onClick={filterData}>Filter</button>
           </div>
             <div className="container">
-            {
-              filteredBikeData.map((val)=>{
-                console.log(val);
-                if(val !== "")
-                {
-                   return (<Bikecard imgurl={val.ImageURL} make = {val.make} capacity = {val.Displacement} hp={val.Power}/>)
-                }
-                else{
-                  alert("test");
-                  return <h1>No record Found</h1>
-                }
-              })
-            }
+            <Posts posts={currentPosts} />  
             </div>
+            <div className="paginationProp" >
+            <Pagination postPerPage={postPerPage} totalPosts={bikedata.length} paginate={paginate}/>
+            </div>
+
         </div>
             );
 };
