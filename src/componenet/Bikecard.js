@@ -6,7 +6,7 @@ const Bikecard = (prop) => {
   return(
     <div className="bikeComponent">
           <div id="image">
-            <img src="https://moto-trips.pl/wp-content/uploads/2020/11/315042_2021_HONDA_NC750X-1536x864.jpg" alt="" />
+            <img src={prop.imgurl} alt="" />
           </div>
         <div id="bikeDesc">
             <div id="logoContainer">

@@ -17,16 +17,10 @@ const Bikedata = () => {
   const [max4,setmax4]=useState(0);
   const [filteredBikeData,setFiltereddata]=useState([]);
 
-
-// console.log("filteredBikeData===")
-
-
   const filterData = ()=>{
-    console.log(min1);
-    console.log(max1);
     let filteredData = bikedata.filter(function(val){
-      if((min1<val.Displacement && val.Displacement<max1))
-      return val;
+      if((min1<val.Displacement && val.Displacement<max1) && (min2<val.Power && val.Power < max2))
+            return val;
     });
 
 
@@ -37,7 +31,7 @@ const Bikedata = () => {
   useEffect(() => {
     const supabase_bikedata = async () => {
       try{
-        let data = await Supabase.from("bikedata").select();
+        let data = await Supabase.from("bike main").select();
         return data;
       }
       catch(error){
@@ -57,11 +51,10 @@ const Bikedata = () => {
           <Header /> 
           <div className="sliderContainer">
             <div className="sliderprop">
-              <label>Capacity</label>
+              <label>Displacement</label>
             <MultiRangeSlider
                   min={800}
                   max={1500}
-                  unit ={"cm3"}
                   onChange={({ min, max }) => {setmin(min);setmax(max);}}
             />
             <div className="unit">
@@ -73,50 +66,45 @@ const Bikedata = () => {
             </div>
 
             <div className="sliderprop">
-              <label>Capacity</label>
+              <label>Power</label>
             <MultiRangeSlider
-                  min={800}
-                  max={1500}
-                  unit ={"cm3"}
-                  onChange={({ min, max }) => {setmin(min);setmax(max);}}
+                  min={50}
+                  max={ 500}
+                  onChange={({ min, max }) => {setmin2(min);setmax2(max);}}
             />
             <div className="unit">
-              <label>
-                {min1}cm<sup>3</sup>
-              </label>
-              <label>{max1}cm<sup>3</sup></label>
+              <label>{min2}ps</label>
+              <label>{max2}ps</label>
             </div>
             </div>
 
             <div className="sliderprop">
-              <label>Capacity</label>
+              <label>Make(not working)</label>
             <MultiRangeSlider
-                  min={800}
-                  max={1500}
-                  unit ={"cm3"}
-                  onChange={({ min, max }) => {setmin(min);setmax(max);}}
+                  min={0}
+                  max={10}
+                  onChange={({ min, max }) => {setmin3(min);setmax3(max);}}
             />
             <div className="unit">
               <label>
-                {min1}cm<sup>3</sup>
+                {min3}
               </label>
-              <label>{max1}cm<sup>3</sup></label>
+              <label>{max3}</label>
             </div>
             </div>
 
             <div className="sliderprop">
-              <label>Capacity</label>
+              <label>Capacity(not working)</label>
             <MultiRangeSlider
-                  min={800}
-                  max={1500}
-                  unit ={"cm3"}
-                  onChange={({ min, max }) => {setmin(min);setmax(max);}}
+                  min={0}
+                  max={10}
+                  onChange={({ min, max }) => {setmin4(min);setmax4(max);}}
             />
             <div className="unit">
               <label>
-                {min1}cm<sup>3</sup>
+                {min4}
               </label>
-              <label>{max1}cm<sup>3</sup></label>
+              <label>{max4}</label>
             </div>
             </div>
           </div>
@@ -127,11 +115,13 @@ const Bikedata = () => {
             <div className="container">
             {
               filteredBikeData.map((val)=>{
+                console.log(val);
                 if(val !== "")
                 {
-                   return (<Bikecard  make = {val.make} capacity = {val.Displacement} hp={val.power}/>)
+                   return (<Bikecard imgurl={val.ImageURL} make = {val.make} capacity = {val.Displacement} hp={val.Power}/>)
                 }
                 else{
+                  alert("test");
                   return <h1>No record Found</h1>
                 }
               })
