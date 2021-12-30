@@ -26,8 +26,6 @@ const Bikedata = () => {
       if((min1<val.Displacement && val.Displacement<max1) && (min2<val.Power && val.Power < max2))
             return val;
     });
-
-
     setFiltereddata(filteredData);
   }
 
@@ -45,6 +43,7 @@ const Bikedata = () => {
 
     supabase_bikedata().then((val) => {
       assigndata(val.data);
+      setFiltereddata(val.data);
     });
   }, []);
 
@@ -129,7 +128,7 @@ const Bikedata = () => {
             <Posts posts={currentPosts} />  
             </div>
             <div className="paginationProp" >
-            <Pagination postPerPage={postPerPage} totalPosts={bikedata.length} paginate={paginate}/>
+            <Pagination postPerPage={postPerPage} totalPosts={filteredBikeData.length} paginate={paginate}/>
             </div>
 
         </div>
