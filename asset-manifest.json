@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/webautomationdeveloper/motorcycle.git/static/css/main.074198dd.css",
+    "main.js": "/webautomationdeveloper/motorcycle.git/static/js/main.3ac0165e.js",
+    "static/js/787.26da7418.chunk.js": "/webautomationdeveloper/motorcycle.git/static/js/787.26da7418.chunk.js",
+    "index.html": "/webautomationdeveloper/motorcycle.git/index.html",
+    "main.074198dd.css.map": "/webautomationdeveloper/motorcycle.git/static/css/main.074198dd.css.map",
+    "main.3ac0165e.js.map": "/webautomationdeveloper/motorcycle.git/static/js/main.3ac0165e.js.map",
+    "787.26da7418.chunk.js.map": "/webautomationdeveloper/motorcycle.git/static/js/787.26da7418.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.074198dd.css",
+    "static/js/main.3ac0165e.js"
+  ]
+}
