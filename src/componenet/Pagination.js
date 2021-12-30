@@ -1,4 +1,4 @@
-
+import './Pagination.css';
 const Pagination = ({postPerPage,totalPosts,paginate}) =>{
     const pageNumbers = [];
     for(let i=1;i<=Math.ceil(totalPosts/postPerPage);i++){
@@ -11,7 +11,6 @@ const Pagination = ({postPerPage,totalPosts,paginate}) =>{
                 <ul className="pagination text-white">
                     {pageNumbers.map(number =>{
                         return(
-
                             <li key={number} className="page-item">
                             <a href="!#" className="page-link" onClick={()=>{paginate(number)}}>
                                 {number}
